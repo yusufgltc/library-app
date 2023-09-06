@@ -1,0 +1,11 @@
+server:
+  port:8080
+spring:
+  profiles:
+    active:local
+  datasource:
+    username: ${service.datasource.user}
+    password: ${service.datasource.password}
+    url: jdbc:${service.datasource.url}
+  liquibase:
+    change-log: classpath:db/changelog/dbchange.log.xml

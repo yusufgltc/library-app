@@ -1,0 +1,5 @@
+service:
+    datasource:
+        url: postgresql://localhost:5432/libraryapp
+        user: admin
+        password: admin

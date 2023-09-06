@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  library-app:
+    container_name: libraryApp
+    build: ../../library-app
+    environment:
+      service_datasource_url: postgresql://postgres:5432/libraryapp
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+
+  postgres:
+    container_name: postgres
+    build: ../infrastructure/postgresql
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_MULTIPLE_DATABASES: libraryapp
+    ports:
+      - "5432:5432"
